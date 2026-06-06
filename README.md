@@ -1,3 +1,20 @@
+<div align="center">
+
+# 🛡️ Agent Guardrails
+
+### Agent 安全防护框架
+
+[![规则](https://img.shields.io/badge/规则-10+-blue?style=flat-square)]()
+[![检测](https://img.shields.io/badge/检测-5+-green?style=flat-square)]()
+[![框架](https://img.shields.io/badge/框架-正则+LLM-orange?style=flat-square)]()
+[![更新](https://img.shields.io/badge/更新-2025.06-red?style=flat-square)]()
+
+*输入输出过滤 · 提示注入检测 · 敏感信息脱敏 · 合规审计*
+
+</div>
+
+---
+
 # 🛡️ Agent Guardrails
 
 [![Python 3.8+](https://img.shields.io/badge/Python-3.8+-blue.svg)](https://www.python.org/)
@@ -172,3 +189,4 @@ python examples/guardrail_demo.py
 ## 📄 License
 
 MIT License
+

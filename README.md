@@ -15,11 +15,6 @@
 
 ---
 
-# 🛡️ Agent Guardrails
-
-[![Python 3.8+](https://img.shields.io/badge/Python-3.8+-blue.svg)](https://www.python.org/)
-[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
-
 > 智能体安全防护系统 - 保护 Agent 免受攻击和滥用
 
 ## ✨ 特性

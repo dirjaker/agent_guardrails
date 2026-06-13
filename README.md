@@ -185,3 +185,53 @@ python examples/guardrail_demo.py
 
 MIT License
 
+
+---
+
+## Web 界面
+
+基于 FastAPI 的 REST API 与暗色主题仪表盘。
+
+### 启动
+
+```bash
+python src/web/app.py
+# 访问 http://localhost:8080
+```
+
+### API 接口
+
+| 接口 | 方法 | 说明 |
+|------|------|------|
+| `/api/check/input` | POST | 输入安全检查 |
+| `/api/check/output` | POST | 输出脱敏检查 |
+| `/api/check/tool` | POST | 工具调用检查 |
+| `/api/audit/stats` | GET | 审计统计 |
+| `/api/config` | GET | 防护配置 |
+
+### 仪表盘
+
+暗色主题仪表盘，支持:
+- 输入安全检测（Prompt 注入、SQL 注入等）
+- 输出敏感信息脱敏
+- 工具调用权限验证
+- 防护配置查看
+- 审计统计面板
+
+---
+
+## macOS 应用
+
+### tkinter 桌面版
+
+```bash
+python src/macos/app.py
+```
+
+### py2app 打包
+
+```bash
+# 在 macOS 上执行
+python packaging/py2app_setup.py py2app
+# 产物位于 dist/Agent Guardrails.app
+```

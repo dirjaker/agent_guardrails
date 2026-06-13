@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Agent Guardrails - 安全防护仪表盘</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;background:#0d1117;color:#c9d1d9;min-height:100vh}
+header{background:#161b22;border-bottom:1px solid #30363d;padding:16px 24px;display:flex;align-items:center;justify-content:space-between}
+header h1{font-size:20px;color:#58a6ff;font-weight:600}
+header .status{display:flex;align-items:center;gap:8px;font-size:13px;color:#8b949e}
+header .dot{width:8px;height:8px;border-radius:50%;background:#3fb950}
+.container{max-width:1200px;margin:0 auto;padding:24px;display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.card{background:#161b22;border:1px solid #30363d;border-radius:8px;padding:20px}
+.card h2{font-size:16px;color:#58a6ff;margin-bottom:16px;font-weight:600}
+.card.full{grid-column:1/-1}
+label{display:block;font-size:13px;color:#8b949e;margin-bottom:6px}
+textarea,input[type=text]{width:100%;background:#0d1117;border:1px solid #30363d;border-radius:6px;padding:10px 12px;color:#c9d1d9;font-size:14px;resize:vertical;font-family:inherit}
+textarea:focus,input:focus{outline:none;border-color:#58a6ff}
+textarea{min-height:80px}
+button{background:#238636;color:#fff;border:none;border-radius:6px;padding:8px 20px;font-size:14px;cursor:pointer;font-weight:500;margin-top:10px}
+button:hover{background:#2ea043}
+button.secondary{background:#21262d;border:1px solid #30363d;color:#c9d1d9}
+button.secondary:hover{background:#30363d}
+.result{margin-top:12px;background:#0d1117;border:1px solid #30363d;border-radius:6px;padding:12px;font-size:13px;white-space:pre-wrap;word-break:break-all;max-height:300px;overflow-y:auto;display:none;line-height:1.6}
+.result.show{display:block}
+.badge{display:inline-block;padding:2px 8px;border-radius:12px;font-size:12px;font-weight:500}
+.badge.pass{background:#238636;color:#fff}
+.badge.fail{background:#da3633;color:#fff}
+.badge.warn{background:#d29922;color:#000}
+.config-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:10px}
+.config-item{background:#0d1117;border:1px solid #30363d;border-radius:6px;padding:10px;text-align:center}
+.config-item .name{font-size:12px;color:#8b949e}
+.config-item .val{font-size:18px;font-weight:600;margin-top:4px}
+.config-item .val.on{color:#3fb950}
+.config-item .val.off{color:#da3633}
+.stats-row{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:10px}
+.stat-box{background:#0d1117;border:1px solid #30363d;border-radius:6px;padding:12px;text-align:center}
+.stat-box .num{font-size:24px;font-weight:700;color:#58a6ff}
+.stat-box .lbl{font-size:12px;color:#8b949e;margin-top:4px}
+.footer{text-align:center;padding:24px;font-size:12px;color:#484f58}
+@media(max-width:768px){.container{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<header>
+    <h1>Agent Guardrails - 安全防护仪表盘</h1>
+    <div class="status"><span class="dot" id="statusDot"></span><span id="statusText">检查中...</span></div>
+</header>
+
+<div class="container">
+    <!-- 输入检查 -->
+    <div class="card">
+        <h2>输入安全检查</h2>
+        <label for="inputText">输入文本</label>
+        <textarea id="inputText" placeholder="输入待检查的文本，测试 Prompt 注入、SQL 注入等攻击检测..."></textarea>
+        <button onclick="checkInput()">执行检查</button>
+        <div class="result" id="inputResult"></div>
+    </div>
+
+    <!-- 输出脱敏 -->
+    <div class="card">
+        <h2>输出脱敏检查</h2>
+        <label for="outputText">输出文本</label>
+        <textarea id="outputText" placeholder="输入待脱敏的文本，包含邮箱、手机号等敏感信息..."></textarea>
+        <button onclick="checkOutput()">执行脱敏</button>
+        <div class="result" id="outputResult"></div>
+    </div>
+
+    <!-- 工具调用检查 -->
+    <div class="card">
+        <h2>工具调用检查</h2>
+        <label for="toolName">工具名称</label>
+        <input type="text" id="toolName" placeholder="例如: shell, file_read, network">
+        <label for="toolParams" style="margin-top:8px">参数 (JSON)</label>
+        <input type="text" id="toolParams" placeholder='{"command": "ls -la"}'>
+        <button onclick="checkTool()">执行检查</button>
+        <div class="result" id="toolResult"></div>
+    </div>
+
+    <!-- 配置信息 -->
+    <div class="card">
+        <h2>防护配置</h2>
+        <div class="config-grid" id="configGrid">
+            <div class="config-item"><div class="name">输入过滤</div><div class="val" id="cfgInput">--</div></div>
+            <div class="config-item"><div class="name">输出过滤</div><div class="val" id="cfgOutput">--</div></div>
+            <div class="config-item"><div class="name">工具限制</div><div class="val" id="cfgTool">--</div></div>
+            <div class="config-item"><div class="name">审计日志</div><div class="val" id="cfgAudit">--</div></div>
+            <div class="config-item"><div class="name">严格模式</div><div class="val" id="cfgStrict">--</div></div>
+        </div>
+        <button class="secondary" onclick="loadConfig()" style="margin-top:12px">刷新配置</button>
+    </div>
+
+    <!-- 审计统计 -->
+    <div class="card full">
+        <h2>审计统计</h2>
+        <div class="stats-row" id="auditStats">
+            <div class="stat-box"><div class="num">--</div><div class="lbl">加载中</div></div>
+        </div>
+        <button class="secondary" onclick="loadAudit()" style="margin-top:12px">刷新统计</button>
+    </div>
+</div>
+
+<div class="footer">Agent Guardrails - 安全防护系统</div>
+
+<script>
+const API = '';
+
+async function api(method, path, body) {
+    const opts = {method, headers:{'Content-Type':'application/json'}};
+    if(body) opts.body = JSON.stringify(body);
+    const r = await fetch(API + path, opts);
+    return r.json();
+}
+
+function showResult(id, data) {
+    const el = document.getElementById(id);
+    el.classList.add('show');
+    el.textContent = JSON.stringify(data, null, 2);
+}
+
+async function checkHealth() {
+    try {
+        const d = await api('GET', '/api/health');
+        document.getElementById('statusDot').style.background = '#3fb950';
+        document.getElementById('statusText').textContent = '服务运行中';
+    } catch(e) {
+        document.getElementById('statusDot').style.background = '#da3633';
+        document.getElementById('statusText').textContent = '服务不可用';
+    }
+}
+
+async function checkInput() {
+    const text = document.getElementById('inputText').value;
+    if(!text.trim()) return;
+    const r = await api('POST', '/api/check/input', {text});
+    showResult('inputResult', r);
+}
+
+async function checkOutput() {
+    const text = document.getElementById('outputText').value;
+    if(!text.trim()) return;
+    const r = await api('POST', '/api/check/output', {text});
+    showResult('outputResult', r);
+}
+
+async function checkTool() {
+    const name = document.getElementById('toolName').value;
+    let params = {};
+    try { params = JSON.parse(document.getElementById('toolParams').value || '{}'); } catch(e){}
+    if(!name.trim()) return;
+    const r = await api('POST', '/api/check/tool', {tool_name: name, params});
+    showResult('toolResult', r);
+}
+
+async function loadConfig() {
+    const d = await api('GET', '/api/config');
+    const set = (id, v) => {
+        const el = document.getElementById(id);
+        el.textContent = v ? 'ON' : 'OFF';
+        el.className = 'val ' + (v ? 'on' : 'off');
+    };
+    set('cfgInput', d.input_filter);
+    set('cfgOutput', d.output_filter);
+    set('cfgTool', d.tool_guard);
+    set('cfgAudit', d.audit_log);
+    set('cfgStrict', d.strict_mode);
+}
+
+async function loadAudit() {
+    try {
+        const d = await api('GET', '/api/audit/stats');
+        const el = document.getElementById('auditStats');
+        if(d && typeof d === 'object') {
+            let html = '';
+            for(const [k, v] of Object.entries(d)) {
+                html += `<div class="stat-box"><div class="num">${v}</div><div class="lbl">${k}</div></div>`;
+            }
+            if(html) el.innerHTML = html;
+        }
+    } catch(e) {}
+}
+
+checkHealth();
+loadConfig();
+loadAudit();
+</script>
+</body>
+</html>

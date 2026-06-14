@@ -1,0 +1,103 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 400" width="1200" height="400">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0a0a0a"/>
+      <stop offset="50%" style="stop-color:#111111"/>
+      <stop offset="100%" style="stop-color:#0d0d0d"/>
+    </linearGradient>
+    <radialGradient id="glow1" cx="20%" cy="60%" r="35%">
+      <stop offset="0%" style="stop-color:#E74C3C;stop-opacity:0.15"/>
+      <stop offset="100%" style="stop-color:#E74C3C;stop-opacity:0"/>
+    </radialGradient>
+    <radialGradient id="glow2" cx="35%" cy="30%" r="25%">
+      <stop offset="0%" style="stop-color:#E74C3C;stop-opacity:0.1"/>
+      <stop offset="100%" style="stop-color:#E74C3C;stop-opacity:0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1200" height="400" fill="url(#bg)"/>
+  <rect width="1200" height="400" fill="url(#glow1)"/>
+  <rect width="1200" height="400" fill="url(#glow2)"/>
+  <circle cx="271" cy="251" r="2.525859512289422" fill="white" opacity="0.4"/>
+  <circle cx="91" cy="264" r="3.5689256375140728" fill="white" opacity="0.7"/>
+  <circle cx="134" cy="52" r="3.417390564210151" fill="white" opacity="0.5"/>
+  <circle cx="295" cy="281" r="2.482248700603636" fill="white" opacity="0.2"/>
+  <circle cx="544" cy="158" r="2.179602936193804" fill="white" opacity="0.5"/>
+  <circle cx="201" cy="82" r="3.8432420687706004" fill="white" opacity="0.5"/>
+  <circle cx="139" cy="248" r="2.190266661964297" fill="white" opacity="0.9"/>
+  <circle cx="481" cy="204" r="3.639341752252667" fill="white" opacity="0.7"/>
+  <circle cx="52" cy="97" r="2.430310241637244" fill="white" opacity="0.2"/>
+  <circle cx="238" cy="208" r="2.7380653732234568" fill="white" opacity="0.6"/>
+  <circle cx="473" cy="153" r="3.6543221606600387" fill="white" opacity="0.6"/>
+  <circle cx="76" cy="208" r="2.9541352425190106" fill="white" opacity="0.7"/>
+  <circle cx="302" cy="267" r="1.988998634183052" fill="white" opacity="0.5"/>
+  <circle cx="242" cy="278" r="3.767282325993005" fill="white" opacity="0.5"/>
+  <circle cx="368" cy="356" r="3.2375850415084173" fill="white" opacity="0.4"/>
+  <circle cx="524" cy="263" r="2.3782726223164983" fill="white" opacity="0.3"/>
+  <circle cx="77" cy="237" r="1.8877270316881674" fill="white" opacity="0.7"/>
+  <circle cx="316" cy="277" r="1.1544299459410383" fill="white" opacity="0.4"/>
+  <circle cx="585" cy="221" r="2.3550093658354005" fill="white" opacity="0.6"/>
+  <circle cx="285" cy="179" r="3.821949859232672" fill="white" opacity="0.3"/>
+  <circle cx="341" cy="70" r="1.8377278355202882" fill="white" opacity="0.6"/>
+  <circle cx="292" cy="333" r="1.5919172341002017" fill="white" opacity="0.6"/>
+  <circle cx="613" cy="267" r="3.5811476481438405" fill="white" opacity="0.8"/>
+  <circle cx="218" cy="350" r="2.1604580499133093" fill="white" opacity="0.7"/>
+  <circle cx="289" cy="236" r="1.8851907378091313" fill="white" opacity="0.6"/>
+  <circle cx="399" cy="89" r="2.547948564005897" fill="white" opacity="0.3"/>
+  <circle cx="251" cy="179" r="1.9811896433511982" fill="white" opacity="0.4"/>
+  <circle cx="142" cy="351" r="3.2208549240202458" fill="white" opacity="0.8"/>
+  <circle cx="359" cy="338" r="3.9565674368047676" fill="white" opacity="0.5"/>
+  <circle cx="564" cy="74" r="1.5950886464001823" fill="white" opacity="0.8"/>
+  <circle cx="195" cy="259" r="3.3087855807226023" fill="white" opacity="0.4"/>
+  <circle cx="543" cy="103" r="3.216968135269779" fill="white" opacity="0.9"/>
+  <circle cx="470" cy="90" r="1.8934794801555979" fill="white" opacity="0.7"/>
+  <circle cx="111" cy="35" r="2.1121560310614793" fill="white" opacity="0.9"/>
+  <circle cx="583" cy="90" r="1.7558366693324197" fill="white" opacity="0.6"/>
+  <circle cx="428" cy="328" r="1.7138756047863404" fill="white" opacity="0.8"/>
+  <circle cx="334" cy="336" r="3.270431488629348" fill="white" opacity="0.2"/>
+  <circle cx="419" cy="293" r="2.652943123418752" fill="white" opacity="0.7"/>
+  <circle cx="508" cy="125" r="3.3117572015485237" fill="white" opacity="0.2"/>
+  <circle cx="337" cy="112" r="1.9757828130119983" fill="white" opacity="0.5"/>
+  <circle cx="602" cy="57" r="3.2784088295420664" fill="white" opacity="0.9"/>
+  <circle cx="85" cy="162" r="3.9712240850886857" fill="white" opacity="0.4"/>
+  <circle cx="215" cy="194" r="1.4914773374418104" fill="white" opacity="0.5"/>
+  <circle cx="320" cy="228" r="3.9490954900004516" fill="white" opacity="0.6"/>
+  <circle cx="230" cy="337" r="2.894654665412089" fill="white" opacity="0.8"/>
+  <circle cx="303" cy="256" r="3.3682188051764292" fill="white" opacity="0.6"/>
+  <circle cx="208" cy="188" r="1.696540559113176" fill="white" opacity="0.7"/>
+  <circle cx="151" cy="59" r="1.9119560886329774" fill="white" opacity="0.8"/>
+  <circle cx="64" cy="149" r="1.3256403429871397" fill="white" opacity="0.8"/>
+  <circle cx="395" cy="45" r="2.357658992026509" fill="white" opacity="0.4"/>
+  <circle cx="61" cy="185" r="1.0460614178770067" fill="white" opacity="0.5"/>
+  <circle cx="52" cy="258" r="3.5519663189447295" fill="white" opacity="0.6"/>
+  <circle cx="479" cy="64" r="1.3305372501878296" fill="white" opacity="0.3"/>
+  <circle cx="169" cy="178" r="2.04424536093788" fill="white" opacity="0.7"/>
+  <circle cx="126" cy="270" r="1.702821971773755" fill="white" opacity="0.6"/>
+  <circle cx="184" cy="187" r="3.638407788056516" fill="white" opacity="0.7"/>
+  <circle cx="522" cy="354" r="1.2333149432782424" fill="white" opacity="0.3"/>
+  <circle cx="212" cy="364" r="2.0021243938659015" fill="white" opacity="0.3"/>
+  <circle cx="541" cy="146" r="1.8667178176079628" fill="white" opacity="0.8"/>
+  <circle cx="612" cy="78" r="3.6466533345550762" fill="white" opacity="0.5"/>
+  <line x1="577" y1="345" x2="677" y2="418" stroke="white" stroke-width="0.5" opacity="0.15"/>
+  <line x1="415" y1="37" x2="531" y2="68" stroke="white" stroke-width="0.5" opacity="0.15"/>
+  <line x1="79" y1="265" x2="187" y2="254" stroke="white" stroke-width="0.5" opacity="0.15"/>
+  <line x1="170" y1="325" x2="220" y2="345" stroke="white" stroke-width="0.5" opacity="0.15"/>
+  <line x1="436" y1="334" x2="548" y2="352" stroke="white" stroke-width="0.5" opacity="0.15"/>
+  <line x1="450" y1="199" x2="511" y2="136" stroke="white" stroke-width="0.5" opacity="0.15"/>
+  <line x1="429" y1="347" x2="528" y2="285" stroke="white" stroke-width="0.5" opacity="0.15"/>
+  <line x1="443" y1="246" x2="528" y2="200" stroke="white" stroke-width="0.5" opacity="0.15"/>
+  <line x1="364" y1="34" x2="481" y2="97" stroke="white" stroke-width="0.5" opacity="0.15"/>
+  <line x1="422" y1="358" x2="522" y2="413" stroke="white" stroke-width="0.5" opacity="0.15"/>
+  <line x1="443" y1="228" x2="513" y2="188" stroke="white" stroke-width="0.5" opacity="0.15"/>
+  <line x1="406" y1="342" x2="461" y2="341" stroke="white" stroke-width="0.5" opacity="0.15"/>
+  <line x1="465" y1="207" x2="527" y2="270" stroke="white" stroke-width="0.5" opacity="0.15"/>
+  <line x1="138" y1="200" x2="192" y2="276" stroke="white" stroke-width="0.5" opacity="0.15"/>
+  <line x1="213" y1="69" x2="253" y2="137" stroke="white" stroke-width="0.5" opacity="0.15"/>
+
+  <line x1="650" y1="60" x2="650" y2="340" stroke="white" stroke-width="0.5" opacity="0.15"/>
+  <text x="680" y="155" font-family="'SF Pro Display','Helvetica Neue',Arial,sans-serif" font-size="88" font-weight="800" fill="white" letter-spacing="8">AGENT GUARDRAILS</text>
+  <text x="680" y="200" font-family="'SF Pro Display','Helvetica Neue',Arial,sans-serif" font-size="18" font-weight="400" fill="white" opacity="0.85" letter-spacing="3">AGENT GUARDRAILS</text>
+  <text x="680" y="230" font-family="'Noto Sans SC','PingFang SC','Microsoft YaHei',sans-serif" font-size="16" font-weight="300" fill="white" opacity="0.6" letter-spacing="2">输入验证 · 输出过滤 · PII脱敏 · 速率限制 · 审计日志</text>
+  <text x="680" y="280" font-family="'SF Mono','Fira Code','Consolas',monospace" font-size="13" fill="white" opacity="0.45" letter-spacing="1.5">FastAPI · Python · Regex</text>
+  <line x1="680" y1="310" x2="1140" y2="310" stroke="white" stroke-width="0.5" opacity="0.15"/>
+  <text x="680" y="340" font-family="'SF Mono','Fira Code','Consolas',monospace" font-size="11" fill="white" opacity="0.35" letter-spacing="1">SECURITY · GUARDRAILS · AI SAFETY · PII</text>
+</svg>

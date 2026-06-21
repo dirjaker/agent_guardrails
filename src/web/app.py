@@ -21,7 +21,8 @@ from datetime import datetime
 from src.guardrails import create_guardrails, Guardrails, GuardrailConfig
 
 app = FastAPI(title="Agent Guardrails API", version="1.0.0")
-app.add_middleware(CORSMiddleware, allow_origins=["*"], allow_methods=["*"], allow_headers=["*"])
+CORS_ORIGINS = os.getenv("CORS_ORIGINS", "http://localhost,http://127.0.0.1").split(",")
+app.add_middleware(CORSMiddleware, allow_origins=CORS_ORIGINS, allow_methods=["*"], allow_headers=["*"])
 
 # 挂载静态文件
 static_dir = os.path.join(os.path.dirname(__file__), "static")

@@ -1,6 +1,7 @@
-rich>=13.0.0
-httpx>=0.25.0
-pydantic>=2.0.0
-fastapi>=0.100.0
-uvicorn>=0.23.0
-py2app>=0.28
+# agent_guardrails - Python 依赖
+# 自动生成于 conda 环境
+
+httpx==0.28.1
+pydantic==2.13.4
+pydantic_core==2.46.4
+typing_extensions==4.15.0

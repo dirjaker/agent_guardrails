@@ -221,7 +221,31 @@ filter.add_sensitive_word("自定义敏感词")
 - 无法检测所有类型的攻击
 - 脱敏规则可能不够全面
 
-## 8. 后续计划
+## 8. 项目结构
+
+```
+agent_guardrails/
+├── src/
+│   ├── __init__.py         # 包初始化，版本信息
+│   ├── guardrails.py       # 统一防护入口
+│   ├── input_filter.py     # 输入过滤模块
+│   ├── output_filter.py    # 输出过滤模块
+│   ├── tool_guard.py       # 工具防护模块
+│   ├── audit_logger.py     # 审计日志模块
+│   ├── web/
+│   │   ├── app.py          # FastAPI Web 服务
+│   │   └── static/         # 前端静态文件
+│   └── macos/
+│       └── app.py          # macOS 桌面应用
+├── examples/
+│   └── guardrail_demo.py   # 功能演示
+├── docs/                   # 项目文档
+├── assets/                 # 静态资源
+├── packaging/              # 打包配置
+└── requirements.txt        # 依赖列表
+```
+
+## 9. 后续计划
 
 - [ ] 集成机器学习检测模型
 - [ ] 添加更多脱敏规则
